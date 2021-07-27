@@ -8,9 +8,10 @@ import { content } from "./Content";
 function Booking(props) {
   return (
     <div className="book-form">
-      <Container>
-        <h1 style={{ color: "Black", fontSize: "24px" }}>Book Your Arena</h1>
-        <Row className="mb-3">
+      <Container style={{ border: "1px solid black", marginTop: "20%" }}>
+        <h1 style={{ color: "Black", marginTop: "20px" }}>Book Your Arena</h1>
+        <hr />
+        <Row className="mb-5">
           <Form.Group as={Col} controlId="formGridState">
             <h3>Select Arena</h3>
             <Form.Select defaultValue="Choose...">
@@ -18,7 +19,6 @@ function Booking(props) {
                 return <option value={bookData.id}>{bookData.name}</option>;
               })}{" "}
             </Form.Select>
-
             <h3>Select Time</h3>
             <Form.Select defaultValue="Choose...">
               <option>7:00-8:00</option>
@@ -35,14 +35,12 @@ function Booking(props) {
               <option value="5">05:00-06:00</option>
             </Form.Select>
             <h3>Select Date</h3>
-            {/* <Form.Select defaultValue="Choose...">
-              <option value={getDate}>Today</option>
-              <option value={getDate}>Tomorrow</option>
-            </Form.Select> */}
           </Form.Group>
         </Row>
 
-        <Button variant="dark">Book Now</Button>
+        <Button variant="dark" style={{ margin: "10%" }}>
+          Book Now
+        </Button>
       </Container>
     </div>
   );
