@@ -1,7 +1,7 @@
 import React from "react";
-import "./Home.css"
+import "./Home.css";
 
-function Home (){
+function Home() {
   return (
     <div className="container">
       <div className="row">
@@ -9,13 +9,17 @@ function Home (){
           <h1>Book My Arena</h1>
           <p>A systematic way to book futsal</p>
         </div>
-         <div className="column">
-         <img src="" alt="" />
+        <div className="column">
+          <img
+            src="C:\Users\user\Desktop\project\src\img\logo.png"
+            alt="logo"
+          />
         </div>
 
+      
       </div>
     </div>
   );
-};
+}
 
 export default Home;

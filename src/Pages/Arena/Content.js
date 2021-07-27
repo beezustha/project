@@ -8,7 +8,7 @@ export const content = [
         "phoneNumber": "9848553216",
         "latitude": "27.4421",
         "longitude": "85.2315",
-        "futsalImage": null,
+        "futsalImage": "",
         "description": "We provide a Great Futsal Experience at an affordable price. We have Multiple grounds to choose from and A nice canteen for those hungry stomachs after the futsal session. We provide changing rooms as well as well facilitated Bathrooms for those sweats."
     },
     {
