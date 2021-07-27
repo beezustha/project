@@ -1,5 +1,4 @@
 export const content = [
- 
    {
         "id": 5,
         "address": "Gokarna, Kathmandu",

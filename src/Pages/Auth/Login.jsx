@@ -55,21 +55,23 @@ function Login() {
           </h2>
 
           <input
-            type="email"
-            class="form-field"
-            placeholder="Email"
-            name="email"
-            value={data.email}
+            id="phoneNumber"
+            type="text"
+            className="form-field"
+            placeholder="Phone Number"
+            name="phoneNumber"
+            value={data.phoneNumber}
             onChange={handleChange}
           />
 
           <input
-            type="password"
-            class="form-field"
-            placeholder="Password"
+            id="password"
             name="password"
-            value={data.password}
+            className="form-field"
             onChange={handleChange}
+            value={data.password}
+            placeholder="Password"
+            type="password"
           />
 
           <br />
