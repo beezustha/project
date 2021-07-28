@@ -34,27 +34,27 @@ function SignUp() {
     if (values.password !== values.confirmPassword) {
       setValid(false);
     }
+  
+        const data = values;
+        delete data.confirmPassword;
 
-    //     const data = values;
-    //     delete data.confirmPassword;
+        axios
+          .post("http://localhost:5000/api/auth/signUp", data)
+          .then((response) => {
+            localStorage.setItem("user", response.data.results.token);
 
-    //     axios
-    //       .post("http://localhost:5000/api/auth/signUp", data)
-    //       .then((response) => {
-    //         localStorage.setItem("user", response.data.results.token);
-
-    //         store.dispatch(getUser()).then((response) => {
-    //           if (data.role === "GUIDE") {
-    //             history.push("/signUp/GuideDetails");
-    //           } else if (data.role === "TOURIST") {
-    //             history.push("/signUp/TouristDetails");
-    //           }
-    //         });
-    //       })
-    //       .catch((e) => {
-    //         console.log(e);
-    //         setValid(false);
-    //       });
+            store.dispatch(getUser()).then((response) => {
+              if (data.role === "GUIDE") {
+                history.push("/signUp/GuideDetails");
+              } else if (data.role === "TOURIST") {
+                history.push("/signUp/TouristDetails");
+              }
+            });
+          })
+          .catch((e) => {
+            console.log(e);
+            setValid(false);
+          });
   };
 
   return (

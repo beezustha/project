@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
+import {useHistory} from "react-router-dom"
 // import Axios from "axios";
 
 function Login() {
   //   const url = "localhost:8080/api/v1/public/register";
+  cont useHistory = useHistory();
   const [data, setData] = useState({
     phoneNumber: "",
     password: "",
@@ -18,6 +20,15 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    Axios.get("url", data).then((response) => {
+      console.log(response);
+      if (response.status == "200") {
+        history.push("/");
+      } else {
+        history.push("/login");
+      }
+    });
     //     Axios.post(url, {
     //       phonneNumber: data.phonneNumber,
     //       password: data.password,
