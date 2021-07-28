@@ -34,7 +34,7 @@ function SignUp() {
     const data = values;
     delete data.confirmPassword;
     axios
-      .post("http://localhost:5000/api/auth/signUp", {
+      .post("http://localhost:8000/api/auth/signUp", {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,

@@ -23,7 +23,7 @@ function Login() {
 
     Axios.get("url", data).then((response) => {
       console.log(response);
-      if (response.status == "200") {
+      if (response.status === "200") {
         history.push("/");
       } else {
         history.push("/login");
