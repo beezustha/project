@@ -1,19 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Booking.css";
-import { content } from "./Content";
+
 import axios from "axios";
 
 function Booking() {
   const [arenaData, setArenaData] = useState([]);
-  useEffect(() => {
-    axios.get("http://localhost:8080/api/v1/public/book").then((response) => {
-      // setArenaData(response.data);
-      console.log(response);
-    });
-  });
+  const [groundData, setGroundData] = useState([]);
+  useEffect(async () => {
+    getArenaData();
+    getGroundId();
+  }, []);
+  const getArenaData = async () => {
+    await axios
+      .get("http://localhost:8080/api/v1/public/findAll")
+      .then((response) => {
+        setArenaData(response.data);
+        console.log(response);
+      });
+  };
+
+  const getGroundId = async () => {
+    await axios
+      .get("http://localhost:8080/api/v1/public/getbyFutsalid")
+      .then((resp) => {
+        setGroundData(resp.data);
+        console.log(resp);
+      });
+  };
   return (
     <div className="book-form">
       <Container style={{ border: "1px solid black", marginTop: "20%" }}>
@@ -23,7 +39,7 @@ function Booking() {
           <Form.Group as={Col} controlId="formGridState">
             <h3>Select Arena</h3>
             <Form.Select defaultValue="Choose...">
-              {arenaData.map((bookData) => {
+              {arenaData.data.map((bookData, idx) => {
                 return <option value={bookData.id}>{bookData.name}</option>;
               })}{" "}
             </Form.Select>
