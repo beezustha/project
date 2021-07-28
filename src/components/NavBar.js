@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
+  const token = localStorage.getItem("user-info")
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
@@ -10,14 +11,14 @@ function NavBar() {
     <>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          <Link exact to="/" className="nav-logo">
             Book My Arena
             <i className="fas fa-futbol"></i>
-          </NavLink>
+          </Link>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/"
                 activeClassName="active"
@@ -25,10 +26,10 @@ function NavBar() {
                 onClick={handleClick}
               >
                 Home
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/booking"
                 activeClassName="active"
@@ -36,10 +37,10 @@ function NavBar() {
                 onClick={handleClick}
               >
            Book Now
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/arena"
                 activeClassName="active"
@@ -47,10 +48,10 @@ function NavBar() {
                 onClick={handleClick}
               >
            Arena
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/signUp"
                 activeClassName="active"
@@ -58,10 +59,10 @@ function NavBar() {
                 onClick={handleClick}
               >
                 Sign Up
-              </NavLink>
+              </Link>
             </li>
             <li className="nav-item">
-              <NavLink
+              <Link
                 exact
                 to="/login"
                 activeClassName="active"
@@ -69,7 +70,7 @@ function NavBar() {
                 onClick={handleClick}
               >
                 Login
-              </NavLink>
+              </Link>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>

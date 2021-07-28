@@ -4,7 +4,6 @@ import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
 function Login() {
-  //   const url = "localhost:8080/api/v1/public/register";
   const history = useHistory();
   const [data, setData] = useState({
     phoneNumber: "",
@@ -22,7 +21,7 @@ function Login() {
 
   function handleSubmit(e) {
     e.preventDefault();
-
+    //sending form data to the database
     Axios.post("http://localhost:8080/api/v1/public/signIn", data)
       .then((response) => {
         console.log(response);
@@ -31,7 +30,12 @@ function Login() {
         } else {
           history.push("/login");
         }
-        localStorage.setItem("token", response.data.Token);
+        localStorage.setItem(
+          "token",
+          response.data.Token,
+          "user-id",
+          response.data.phoneNumber
+        );
       })
       .catch((e) => {
         console.log(e);
@@ -57,13 +61,7 @@ function Login() {
             />
           </svg>
 
-          <h2
-            style={{
-              padding: "10px 0 10px 0",
-              color: "black",
-              fontSize: "20px",
-            }}
-          >
+          <h2>
             Login
           </h2>
 
@@ -91,15 +89,7 @@ function Login() {
           <br />
 
           <a href="/signUp">
-            <p
-              style={{
-                padding: "10px 0 10px 0",
-                color: "black",
-                fontSize: "20px",
-              }}
-            >
-              Register
-            </p>
+            <p className="reg-text">Register</p>
           </a>
 
           <br />

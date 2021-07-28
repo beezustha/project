@@ -73,7 +73,7 @@ function SignUp() {
             />
           </svg>
 
-          <h2 style={{ padding: "10px 0 10px 0", color: "black" }}>Sign Up</h2>
+          <h2>Sign Up</h2>
 
           <input
             id="firstName"

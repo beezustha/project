@@ -7,15 +7,15 @@ h2 {
   border: 1px solid #000000;
   font-family: "Arvo", Courier, monospace;
   text-align: center;
-  margin-top: 20vh;
-  margin-left: 20%;
-  margin-right: 20%;
-}
+  margin-top: 10vh;
+  margin-left: 30%;
+  margin-right: 30%;
+} 
 
-.form_signIn {
+ .form_signIn {
   margin: 0 auto;
   max-width: 450px;
-}
+} 
 
 .form-field {
   padding: 10px;
@@ -44,7 +44,7 @@ input[type="email"] {
 .lock {
   height: 50px;
   width: 50px;
-}
+} 
 
 .login-icon {
   height: 50px;
@@ -55,3 +55,9 @@ input[type="email"] {
   font-size: 15px;
   color: #000000;
 }
+
+.reg-text {
+  padding: 10px 0 10px 0;
+  color: black;
+  font-size: 20px;
+} 
