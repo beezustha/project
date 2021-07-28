@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap";
-
+import { useHistory } from "react-router-dom";
 import "./Register.css";
 
 function SignUp() {
@@ -16,7 +16,7 @@ function SignUp() {
   });
 
   const [valid, setValid] = useState(true);
-
+  const history = useHistory();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((values) => ({
@@ -28,7 +28,7 @@ function SignUp() {
   const handleSubmitClick = (e) => {
     setValid(true);
     e.preventDefault();
-    if (values.password !== values.confirmPassword) {
+    if (values.password !== values.cPassword) {
       setValid(false);
     }
     const data = values;
@@ -45,6 +45,7 @@ function SignUp() {
       .then((response) => {
         // localStorage.setItem("user", response.data.results.token);
         console.log(response);
+        history.push("/login");
       })
       .catch((e) => {
         console.log(e);
