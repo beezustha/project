@@ -23,7 +23,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    Axios.get("url", data)
+    Axios.get("http://localhost:8080/api/v1/public/signIn", data)
       .then((response) => {
         console.log(response);
         if (response.status == "200") {
