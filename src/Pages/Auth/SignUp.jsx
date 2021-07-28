@@ -131,7 +131,7 @@ function SignUp() {
             placeholder="Password"
             type="password"
           />
-          <input
+          {/* <input
             id="cPassword"
             name="cPassword"
             className="form-field"
@@ -139,7 +139,7 @@ function SignUp() {
             value={values.cPassword}
             placeholder="Confirm Password"
             type="password"
-          />
+          /> */}
 
           <Button
             variant="flat"
@@ -152,7 +152,7 @@ function SignUp() {
           </Button>
         </form>
 
-        {!valid ? <span>Password not matching </span> : <></>}
+        {/* {!valid ? <span>Password not matching </span> : <></>} */}
       </div>
     </Container>
   );
