@@ -8,8 +8,8 @@ h2 {
   font-family: "Arvo", Courier, monospace;
   text-align: center;
   margin-top: 20vh;
-  margin-left: 35%;
-  margin-right: 35%;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 
 .form_signIn {
@@ -18,9 +18,10 @@ h2 {
 }
 
 .form-field {
-  padding: 15px;
-  margin: 10px 0;
-  width: 80%;
+  padding: 10px;
+  margin: 5px 0;
+  width: 90%;
+  height: 5vh;
 }
 
 input[type="name"],

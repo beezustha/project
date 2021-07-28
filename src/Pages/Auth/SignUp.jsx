@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import axios from "axios";
 import { Container, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 
@@ -30,31 +30,20 @@ function SignUp() {
   const handleSubmitClick = (e) => {
     setValid(true);
     e.preventDefault();
-
     if (values.password !== values.confirmPassword) {
       setValid(false);
     }
-  
-        const data = values;
-        delete data.confirmPassword;
-
-        axios
-          .post("http://localhost:5000/api/auth/signUp", data)
-          .then((response) => {
-            localStorage.setItem("user", response.data.results.token);
-
-            store.dispatch(getUser()).then((response) => {
-              if (data.role === "GUIDE") {
-                history.push("/signUp/GuideDetails");
-              } else if (data.role === "TOURIST") {
-                history.push("/signUp/TouristDetails");
-              }
-            });
-          })
-          .catch((e) => {
-            console.log(e);
-            setValid(false);
-          });
+    const data = values;
+    delete data.confirmPassword;
+    axios
+      .post("http://localhost:5000/api/auth/signUp", data)
+      .then((response) => {
+        localStorage.setItem("user", response.data.results.token);
+      })
+      .catch((e) => {
+        console.log(e);
+        setValid(false);
+      });
   };
 
   return (

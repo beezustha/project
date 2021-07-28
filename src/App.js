@@ -6,7 +6,7 @@ import Booking from "./Pages/Booking/Booking";
 import SignUp from "./Pages/Auth/SignUp";
 import Login from "./Pages/Auth/Login";
 import Arena from "./Pages/Arena/Arena";
-import Footer from "./components/Footer/Footer";
+
 
 function App() {
   return (
