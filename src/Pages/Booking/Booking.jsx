@@ -23,7 +23,7 @@ function Booking() {
           <Form.Group as={Col} controlId="formGridState">
             <h3>Select Arena</h3>
             <Form.Select defaultValue="Choose...">
-              {content.map((bookData) => {
+              {arenaData.map((bookData) => {
                 return <option value={bookData.id}>{bookData.name}</option>;
               })}{" "}
             </Form.Select>
