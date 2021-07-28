@@ -30,12 +30,8 @@ function Login() {
         } else {
           history.push("/login");
         }
-        localStorage.setItem(
-          "token",
-          response.data.Token,
-          "user-id",
-          response.data.phoneNumber
-        );
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user-id", response.data.id);
       })
       .catch((e) => {
         console.log(e);
@@ -61,9 +57,7 @@ function Login() {
             />
           </svg>
 
-          <h2>
-            Login
-          </h2>
+          <h2>Login</h2>
 
           <input
             id="phoneNumber"
