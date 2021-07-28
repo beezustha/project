@@ -23,7 +23,7 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    Axios.get("http://localhost:8080/api/v1/public/signIn", data)
+    Axios.post("http://localhost:8080/api/v1/public/signIn", data)
       .then((response) => {
         console.log(response);
         if (response.status == "200") {
@@ -31,7 +31,7 @@ function Login() {
         } else {
           history.push("/login");
         }
-        localStorage.setItem("user", response.data.token);
+        localStorage.setItem("token", response.data.Token);
       })
       .catch((e) => {
         console.log(e);
