@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Button } from "react-bootstrap";
-import {useHistory} from "react-router-dom"
+import { useHistory } from "react-router-dom";
 import Axios from "axios";
 
 function Login() {
@@ -10,6 +10,8 @@ function Login() {
     phoneNumber: "",
     password: "",
   });
+
+  const [valid, setValid] = useState(true);
 
   function handleChange(e) {
     const newData = { ...data };
@@ -21,15 +23,20 @@ function Login() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    Axios.get("url", data).then((response) => {
-      console.log(response);
-      if (response.status === "200") {
-        history.push("/");
-      } else {
-        history.push("/login");
-      }
-    });
- 
+    Axios.get("url", data)
+      .then((response) => {
+        console.log(response);
+        if (response.status == "200") {
+          history.push("/");
+        } else {
+          history.push("/login");
+        }
+        localStorage.setItem("user", response.data.token);
+      })
+      .catch((e) => {
+        console.log(e);
+        setValid(false);
+      });
   }
   return (
     <Container>

@@ -45,6 +45,7 @@ function SignUp() {
       .then((response) => {
         // localStorage.setItem("user", response.data.results.token);
         console.log(response);
+        localStorage.setItem("user-info", data);
         history.push("/login");
       })
       .catch((e) => {
