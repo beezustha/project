@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 function NavBar() {
+
   const token = localStorage.getItem("user-info");
   const [click, setClick] = useState(false);
 
@@ -50,7 +51,7 @@ function NavBar() {
                 Arena
               </Link>
             </li>
-            {token.length > 0 ? (
+            {token.length < 0 ? (
               <ul className={click ? "nav-menu active" : "nav-menu"}>
                 <li className="nav-item">
                   <Link

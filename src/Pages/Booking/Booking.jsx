@@ -4,8 +4,16 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Booking.css";
 import { content } from "./Content";
+import axios from "axios";
 
-function Booking(props) {
+function Booking() {
+  const [arenaData, setArenaData] = useState([]);
+  useEffect(() => {
+    axios.get("http://localhost:8080/api/v1/public/book").then((response) => {
+      // setArenaData(response.data);
+      console.log(response);
+    });
+  });
   return (
     <div className="book-form">
       <Container style={{ border: "1px solid black", marginTop: "20%" }}>
