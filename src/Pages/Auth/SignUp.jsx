@@ -6,14 +6,13 @@ import { useHistory } from "react-router-dom";
 import "./Register.css";
 
 function SignUp() {
-  const history = useHistory();
-
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     email: "",
     phoneNumber: "",
     password: "",
+    cPassword: "",
     DOB: "",
   });
 
@@ -36,9 +35,17 @@ function SignUp() {
     const data = values;
     delete data.confirmPassword;
     axios
-      .post("http://localhost:5000/api/auth/signUp", data)
+      .post("http://localhost:5000/api/auth/signUp", {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        password: data.password,
+        DOB: data.DOB,
+      })
       .then((response) => {
-        localStorage.setItem("user", response.data.results.token);
+        // localStorage.setItem("user", response.data.results.token);
+        console.log(response);
       })
       .catch((e) => {
         console.log(e);
@@ -122,6 +129,15 @@ function SignUp() {
             onChange={handleChange}
             value={values.password}
             placeholder="Password"
+            type="password"
+          />
+          <input
+            id="cPassword"
+            name="cPassword"
+            className="form-field"
+            onChange={handleChange}
+            value={values.cPassword}
+            placeholder="Confirm Password"
             type="password"
           />
 
