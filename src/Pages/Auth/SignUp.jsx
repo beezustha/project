@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Button } from "react-bootstrap";
-import { useHistory } from "react-router-dom";
 
 import "./Register.css";
 
